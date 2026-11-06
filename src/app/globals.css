@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-ivory: #F8F5EF;
+  --text-charcoal: #252722;
+  --accent-coral: #D95C42;
+  --accent-sage: #8DA18A;
+  --card-white: #FFFFFF;
+  --border-subtle: #EAE7DF;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-ivory);
+    color: var(--text-charcoal);
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F2EFE8;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D5CEBF;
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B8B09F;
+}
+
+/* Food Diet Badges */
+.food-badge-veg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #27865C;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+}
+
+.food-badge-veg::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background-color: #27865C;
+}
+
+.food-badge-nonveg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #CF4848;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+}
+
+.food-badge-nonveg::after {
+  content: '';
+  width: 0;
+  height: 0;
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-bottom: 7px solid #CF4848;
+}
+
+.food-badge-egg {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 15px;
+  height: 15px;
+  border: 1.5px solid #E4A13B;
+  border-radius: 3px;
+  background-color: #FFFFFF;
+}
+
+.food-badge-egg::after {
+  content: '';
+  width: 7px;
+  height: 7px;
+  border-radius: 9999px;
+  background-color: #E4A13B;
+}
+
+/* Subtle thermal receipt print styling */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+  #printable-receipt, #printable-receipt * {
+    visibility: visible;
+  }
+  #printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80mm;
+    margin: 0;
+    padding: 10px;
+  }
+}
